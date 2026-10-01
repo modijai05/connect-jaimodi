@@ -403,10 +403,16 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   document.querySelectorAll('[data-action="preview-cards-scroll"]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    const trigger = (e) => {
       e.preventDefault();
       const targetCard = btn.getAttribute('data-target-card') || 'all';
       openCardsScrollModal(targetCard);
+    };
+    btn.addEventListener('click', trigger);
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        trigger(e);
+      }
     });
   });
 

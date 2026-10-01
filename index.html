@@ -240,22 +240,36 @@
           </div>
         </div>
 
-        <div class="business-actions-row">
-          <a href="tel:+919928075914" class="btn-biz-call" aria-label="Call Jai Modi">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <span>Call +91 9928075914</span>
-          </a>
-          <button class="btn-biz-preview" data-action="preview-cards-scroll" data-target-card="jai" aria-label="View Full Business Card (4K)">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-            <span>View Card (4K)</span>
-          </button>
-        </div>
+        <!-- NATURAL VISITING CARD DISPLAY (DIRECTLY UNDER BUSINESS DETAILS) -->
+        <div class="card-showcase-container">
+          <div class="card-showcase-header">
+            <span class="card-showcase-label">OFFICIAL VISITING CARD</span>
+            <span class="card-showcase-sub">Tap card for 4K full-screen view</span>
+          </div>
 
-        <!-- Banner for Viewing All 3 Business Cards in Scrolling Mode -->
-        <button class="btn-all-cards-banner" data-action="preview-cards-scroll" data-target-card="all" aria-label="View All 3 Business Cards in Scrolling Mode">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-          <span>VIEW ALL 3 VISITING CARDS (FULL 4K SCROLLING)</span>
-        </button>
+          <div class="card-showcase-frame" data-action="preview-cards-scroll" data-target-card="jai" role="button" tabindex="0" aria-label="View The South Pickleball Arena Visiting Card in full resolution">
+            <img src="/assets/businesses/south-pickleball-arena-card.png" alt="Jai Modi - The South Pickleball Arena Official Card" class="card-showcase-img" loading="lazy">
+            <div class="card-showcase-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>TAP TO EXPAND 4K</span>
+            </div>
+          </div>
+
+          <div class="card-showcase-actions">
+            <a href="tel:+919928075914" class="card-action-btn" aria-label="Call Jai Modi">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Call Arena</span>
+            </a>
+            <button class="card-action-btn" data-action="preview-cards-scroll" data-target-card="jai" aria-label="View Visiting Card in full resolution">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>View 4K</span>
+            </button>
+            <a href="/assets/businesses/south-pickleball-arena-card.pdf" download="The_South_Pickleball_Arena_Card.pdf" class="card-action-btn" aria-label="Download Card PDF">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Download</span>
+            </a>
+          </div>
+        </div>
 
         <!-- MY INDIA LOCATION (under MY section) -->
         <div class="location-card my-location-card" id="location-india">
@@ -305,18 +319,10 @@
       <div class="page2-header">
         <h2 class="page2-title">PARTNERS, BUSINESSES &amp; LOCATIONS</h2>
         <p class="page2-sub">Global Business Network &amp; Executive Partners</p>
-
-        <!-- Banner for Viewing All 3 Business Cards in Scrolling Mode -->
-        <button class="btn-all-cards-banner" data-action="preview-cards-scroll" data-target-card="all" aria-label="View All 3 Business Cards in Scrolling Mode">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-          <span>VIEW ALL 3 VISITING CARDS (FULL 4K SCROLLING)</span>
-        </button>
       </div>
 
       <!-- PARTNER 1: RAKESH GUPTA (Hong Kong Business Partner) -->
       <article class="partner-card" aria-label="Partner Rakesh Gupta">
-        <div class="partner-badge-top">HONG KONG PARTNER</div>
-
         <div class="partner-profile-header">
           <button class="partner-avatar-wrap" data-action="view-photo" data-photo="/assets/profiles/rakesh-gupta.jpg" data-name="Rakesh Gupta" aria-label="View Rakesh Gupta full photo">
             <picture>
@@ -326,18 +332,41 @@
             <span class="avatar-tap-hint">TAP TO VIEW</span>
           </button>
           <div class="partner-info">
+            <span class="partner-role-pill">HONG KONG PARTNER</span>
             <h3 class="partner-name">RAKESH GUPTA</h3>
-            <span class="partner-designation">HONG KONG BUSINESS PARTNER</span>
-            <span class="partner-biz-descriptor" style="color: var(--gold-light); font-weight: 700;">VANDAN JEWELS</span>
-            <span style="font-size: 0.74rem; color: var(--text-secondary);">Deals in Gems &amp; Diamonds</span>
+            <p class="partner-biz-line"><strong class="highlight-gold">VANDAN JEWELS</strong><span class="biz-separator">•</span>Deals in Gems &amp; Diamonds</p>
           </div>
         </div>
 
-        <!-- 4K Visiting Card Button for Rakesh -->
-        <button class="partner-card-preview-btn" data-action="preview-cards-scroll" data-target-card="rakesh" style="margin-top: 10px; margin-bottom: 14px;">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-          <span>View Vandan Jewels Visiting Card (4K)</span>
-        </button>
+        <!-- VANDAN JEWELS 4K VISITING CARD (NATURAL DISPLAY) -->
+        <div class="card-showcase-container">
+          <div class="card-showcase-header">
+            <span class="card-showcase-label">VANDAN JEWELS — VISITING CARD</span>
+            <span class="card-showcase-sub">Tap card for 4K full-screen view</span>
+          </div>
+
+          <div class="card-showcase-frame" data-action="preview-cards-scroll" data-target-card="rakesh" role="button" tabindex="0" aria-label="View Rakesh Gupta - Vandan Jewels Visiting Card in full resolution">
+            <picture>
+              <source srcset="/assets/businesses/rakesh-gupta-vandan-jewels-card.webp" type="image/webp">
+              <img src="/assets/businesses/rakesh-gupta-vandan-jewels-card.jpg" alt="Rakesh Gupta - Vandan Jewels 4K Visiting Card" class="card-showcase-img" loading="lazy">
+            </picture>
+            <div class="card-showcase-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>TAP TO EXPAND 4K</span>
+            </div>
+          </div>
+
+          <div class="card-showcase-actions">
+            <button class="card-action-btn" data-action="preview-cards-scroll" data-target-card="rakesh" aria-label="View Visiting Card in full resolution">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>View 4K</span>
+            </button>
+            <a href="/assets/businesses/rakesh-gupta-vandan-jewels-card.jpg" download="Rakesh_Gupta_Vandan_Jewels_Card.jpg" class="card-action-btn" aria-label="Download 4K Card">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Download</span>
+            </a>
+          </div>
+        </div>
 
         <!-- Rakesh Gupta Verified Contact Details (FAX REMOVED) -->
         <div class="rakesh-contact-list">
@@ -437,8 +466,6 @@
 
       <!-- PARTNER 2: SHAILENDRA MODI (Business Partner) -->
       <article class="partner-card" aria-label="Partner Shailendra Modi">
-        <div class="partner-badge-top">BUSINESS PARTNER</div>
-
         <div class="partner-profile-header">
           <button class="partner-avatar-wrap" data-action="view-photo" data-photo="/assets/profiles/shailendra-modi.png" data-name="Shailendra Modi" aria-label="View Shailendra Modi full photo">
             <picture>
@@ -448,9 +475,9 @@
             <span class="avatar-tap-hint">TAP TO VIEW</span>
           </button>
           <div class="partner-info">
+            <span class="partner-role-pill">BUSINESS PARTNER</span>
             <h3 class="partner-name">SHAILENDRA MODI</h3>
-            <span class="partner-designation">BUSINESS PARTNER</span>
-            <span class="partner-biz-descriptor">The South Waterpark • The Palm Banquet</span>
+            <p class="partner-biz-line"><strong class="highlight-gold">THE SOUTH WATERPARK</strong><span class="biz-separator">•</span>The Palm Banquet</p>
           </div>
         </div>
 
@@ -495,10 +522,31 @@
             <strong>Phone:</strong> +91 9462015450 &nbsp;|&nbsp; +91 9414071245
           </div>
 
-          <button class="partner-card-preview-btn" data-action="preview-cards-scroll" data-target-card="shailendra">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-            <span>View Waterpark &amp; Banquet Visiting Card (4K)</span>
-          </button>
+          <!-- SHAILENDRA MODI VISITING CARDS (NATURAL DISPLAY) -->
+          <div class="card-showcase-container" style="margin-top: 10px;">
+            <div class="card-showcase-header">
+              <span class="card-showcase-label">WATERPARK &amp; BANQUET — VISITING CARDS</span>
+              <span class="card-showcase-sub">Front &amp; Back (Tap to expand)</span>
+            </div>
+
+            <div class="card-showcase-frame" data-action="preview-cards-scroll" data-target-card="shailendra" role="button" tabindex="0" aria-label="View Waterpark & Banquet Visiting Cards in full resolution">
+              <div class="dual-card-grid">
+                <img src="/assets/businesses/waterpark-banquet-front.png" alt="The South Waterpark Card Front" class="card-showcase-img" loading="lazy">
+                <img src="/assets/businesses/waterpark-banquet-back.png" alt="The Palm Banquet Card Back" class="card-showcase-img" loading="lazy">
+              </div>
+              <div class="card-showcase-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                <span>TAP TO EXPAND 4K</span>
+              </div>
+            </div>
+
+            <div class="card-showcase-actions">
+              <button class="card-action-btn" data-action="preview-cards-scroll" data-target-card="shailendra" aria-label="Expand Visiting Cards">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                <span>View Both (4K)</span>
+              </button>
+            </div>
+          </div>
         </div>
       </article>
 
