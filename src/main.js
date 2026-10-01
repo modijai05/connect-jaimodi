@@ -509,7 +509,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 9. Photo fullscreen viewer (Executive circular frame)
+  // 9. Photo fullscreen viewer (Executive circular frame with full photo visibility & uncropped toggle)
+  const photoModalWrap = document.getElementById('photo-modal-wrap');
+  const photoToggleBtn = document.getElementById('photo-toggle-btn');
+  const photoToggleText = document.getElementById('photo-toggle-text');
+
+  if (photoToggleBtn && photoModalWrap) {
+    photoToggleBtn.addEventListener('click', () => {
+      const isUncropped = photoModalWrap.classList.toggle('uncropped-mode');
+      if (photoToggleText) {
+        photoToggleText.textContent = isUncropped ? 'Show Circular View' : 'Show Uncropped Portrait';
+      }
+    });
+  }
+
   document.querySelectorAll('[data-action="view-photo"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -522,6 +535,11 @@ document.addEventListener('DOMContentLoaded', () => {
         img.alt = photoName || 'Executive Portrait';
       }
       if (title) title.textContent = photoName ? `${photoName.toUpperCase()}` : 'EXECUTIVE PORTRAIT';
+
+      // Always reset to elegant circular view initially
+      if (photoModalWrap) photoModalWrap.classList.remove('uncropped-mode');
+      if (photoToggleText) photoToggleText.textContent = 'Show Uncropped Portrait';
+
       openModal('photo-modal');
     });
   });
