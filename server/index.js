@@ -103,8 +103,9 @@ function generateVcf(personKey) {
       `TEL;TYPE=WORK,VOICE:${partner.contacts.officeTelRaw}`,
       `EMAIL;TYPE=PREF,INTERNET:${partner.contacts.email}`,
       `X-SOCIALPROFILE;TYPE=whatsapp:https://wa.me/${partner.contacts.whatsapp}`,
+      `X-SOCIALPROFILE;TYPE=wechat:RG90538700`,
       'ADR;TYPE=WORK:;;Room 8B\\, 8 Floor\\, Lee Wai Comm. Building\\, 1-3 Hart Avenue\\, T.S.T.;Kowloon;;;Hong Kong',
-      'NOTE;CHARSET=UTF-8:Hong Kong Business Partner - Vandan Jewels (Gems & Diamonds)\\nHK Mobile: +852 90538700\\nChina Mobile: +86 19896590780\\nOffice: +852 3153 4553\\nAddress: Room 8B, 8/F, Lee Wai Comm. Bldg, 1-3 Hart Ave, T.S.T., Kowloon, Hong Kong (九龍尖沙咀赫德道1-3號利威商業大廈8樓B室)',
+      'NOTE;CHARSET=UTF-8:Hong Kong Business Partner - Vandan Jewels (Gems & Diamonds)\\nWeChat ID: RG90538700\\nHK Mobile: +852 90538700\\nChina Mobile: +86 19896590780\\nOffice: +852 3153 4553\\nAddress: Room 8B, 8/F, Lee Wai Comm. Bldg, 1-3 Hart Ave, T.S.T., Kowloon, Hong Kong (九龍尖沙咀赫德道1-3號利威商業大廈8樓B室)',
       'END:VCARD'
     ];
     return {

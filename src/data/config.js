@@ -90,7 +90,8 @@ export const BUSINESS_CARD_CONFIG = {
         officeTelRaw: "+85231534553",
         whatsapp: "85290538700",
         wechatSearchNumber: "+86 19896590780",
-        email: "rakeshgupta01@hotmail.com"
+        email: "rakeshgupta01@hotmail.com",
+        wechatId: "RG90538700"
       },
       vcfFilename: "Rakesh_Gupta.vcf"
     },

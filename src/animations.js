@@ -34,8 +34,8 @@ export function initAmbientCanvas() {
   resize();
   window.addEventListener('resize', resize, { passive: true });
 
-  // Moderate count for calm executive feel
-  const particleCount = window.innerWidth < 768 ? 24 : 40;
+  // Moderate count for calm executive feel & high mobile FPS
+  const particleCount = window.innerWidth < 768 ? 14 : 32;
   const particles = [];
 
   const goldPalette = [
@@ -61,6 +61,12 @@ export function initAmbientCanvas() {
 
   function render() {
     if (!isRunning) return;
+
+    // Pause canvas updates when any modal (e.g. business card viewer) is open to eliminate lag & CPU spike
+    if (document.querySelector('.modal-backdrop.open')) {
+      animationFrameId = requestAnimationFrame(render);
+      return;
+    }
 
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 

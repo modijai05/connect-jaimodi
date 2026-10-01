@@ -166,8 +166,9 @@ function generateLocalVcf(personKey) {
       `TEL;TYPE=WORK,VOICE:${p.contacts.officeTelRaw}`,
       `EMAIL;TYPE=PREF,INTERNET:${p.contacts.email}`,
       `X-SOCIALPROFILE;TYPE=whatsapp:https://wa.me/${p.contacts.whatsapp}`,
+      `X-SOCIALPROFILE;TYPE=wechat:RG90538700`,
       'ADR;TYPE=WORK:;;Room 8B\\, 8 Floor\\, Lee Wai Comm. Building\\, 1-3 Hart Avenue\\, T.S.T.;Kowloon;;;Hong Kong',
-      'NOTE;CHARSET=UTF-8:Hong Kong Business Partner - Vandan Jewels (Gems & Diamonds)\\nHK Mobile: +852 90538700\\nChina Mobile: +86 19896590780\\nOffice: +852 3153 4553\\nAddress: Room 8B, 8/F, Lee Wai Comm. Bldg, 1-3 Hart Ave, T.S.T., Kowloon, Hong Kong (九龍尖沙咀赫德道1-3號利威商業大廈8樓B室)',
+      'NOTE;CHARSET=UTF-8:Hong Kong Business Partner - Vandan Jewels (Gems & Diamonds)\\nWeChat ID: RG90538700\\nHK Mobile: +852 90538700\\nChina Mobile: +86 19896590780\\nOffice: +852 3153 4553\\nAddress: Room 8B, 8/F, Lee Wai Comm. Bldg, 1-3 Hart Ave, T.S.T., Kowloon, Hong Kong (九龍尖沙咀赫德道1-3號利威商業大廈8樓B室)',
       'END:VCARD'
     ];
     return lines.join('\r\n');
@@ -368,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Universal 4K Business Cards Full Scrolling Mode Modal
+  // 6. Universal Business Cards Full Scrolling Mode Modal
   const openCardsScrollModal = (targetCard = 'all') => {
     openModal('cards-scroll-modal');
 
@@ -416,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Quick navigation buttons inside 4K Cards Scrolling Modal
+  // Quick navigation buttons inside Cards Scrolling Modal
   document.querySelectorAll('.cards-scroll-nav-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.cards-scroll-nav-btn').forEach(b => b.classList.remove('active'));
@@ -486,10 +487,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7c. Rakesh Gupta WeChat Modal
+  // 7c. Rakesh Gupta WeChat Action & Modal
   document.querySelectorAll('[data-action="open-rakesh-wechat"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      // Try direct WeChat deep link to open chat with ID RG90538700
+      const wechatDirectUrl = 'weixin://dl/chat?RG90538700';
+      try {
+        window.location.href = wechatDirectUrl;
+      } catch (err) {
+        console.log('WeChat protocol launch:', err);
+      }
+      // Also open modal for ID display, one-tap copy, QR scan & fallback info
       openModal('rakesh-wechat-modal');
     });
   });
