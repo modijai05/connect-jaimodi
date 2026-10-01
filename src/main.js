@@ -369,45 +369,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Universal Business Cards Full Scrolling Mode Modal
-  const openCardsScrollModal = (targetCard = 'all') => {
-    openModal('cards-scroll-modal');
+  // 6. Single Business Card Pure Image Lightbox (Ultra-Fast, Lag-Free)
+  const openCardImageModal = (imageSrc, cardTitle = 'BUSINESS CARD') => {
+    const modal = document.getElementById('card-image-modal');
+    const img = document.getElementById('card-image-modal-img');
+    const titleEl = document.getElementById('card-image-modal-title');
+    if (!modal || !img) return;
 
-    // Update active nav button
-    const navBtns = document.querySelectorAll('.cards-scroll-nav-btn');
-    const scrollBox = document.getElementById('cards-scroll-scrollbox');
+    img.src = imageSrc;
+    img.alt = cardTitle;
+    if (titleEl) titleEl.textContent = cardTitle;
 
-    let targetElementId = 'card-block-jai';
-    if (targetCard === 'rakesh') targetElementId = 'card-block-rakesh';
-    else if (targetCard === 'shailendra') targetElementId = 'card-block-shailendra';
-
-    navBtns.forEach(btn => {
-      const scrollToId = btn.getAttribute('data-scroll-to');
-      if ((targetCard === 'all' && scrollToId === 'card-block-jai') || scrollToId === targetElementId) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
-
-    setTimeout(() => {
-      if (targetCard === 'all') {
-        scrollBox?.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const targetBlock = document.getElementById(targetElementId);
-        if (targetBlock && scrollBox) {
-          const topPos = targetBlock.offsetTop - scrollBox.offsetTop - 10;
-          scrollBox.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
-        }
-      }
-    }, 150);
+    openModal('card-image-modal');
   };
 
-  document.querySelectorAll('[data-action="preview-cards-scroll"]').forEach(btn => {
+  // Allow tapping image inside the lightbox to close it instantly
+  const lightboxImg = document.getElementById('card-image-modal-img');
+  if (lightboxImg) {
+    lightboxImg.addEventListener('click', () => {
+      closeModal('card-image-modal');
+    });
+  }
+
+  // Handle all "view-card-image" triggers (both frame tap and action button)
+  document.querySelectorAll('[data-action="view-card-image"]').forEach(btn => {
     const trigger = (e) => {
       e.preventDefault();
-      const targetCard = btn.getAttribute('data-target-card') || 'all';
-      openCardsScrollModal(targetCard);
+      const img = btn.getAttribute('data-card-img');
+      const title = btn.getAttribute('data-card-title') || 'BUSINESS CARD';
+      if (img) {
+        openCardImageModal(img, title);
+      }
     };
     btn.addEventListener('click', trigger);
     btn.addEventListener('keydown', (e) => {
@@ -417,41 +409,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Quick navigation buttons inside Cards Scrolling Modal
-  document.querySelectorAll('.cards-scroll-nav-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.cards-scroll-nav-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const targetId = btn.getAttribute('data-scroll-to');
-      const targetBlock = document.getElementById(targetId);
-      const scrollBox = document.getElementById('cards-scroll-scrollbox');
-      if (targetBlock && scrollBox) {
-        const topPos = targetBlock.offsetTop - scrollBox.offsetTop - 10;
-        scrollBox.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
-      }
-    });
-  });
-
-  // Backward compatibility for existing preview buttons
+  // Backward compatibility handlers for any legacy preview calls
   document.querySelectorAll('[data-action="preview-pickleball-card"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      openCardsScrollModal('jai');
+      openCardImageModal('/assets/businesses/pickleball-asset-0.jpeg', 'THE SOUTH PICKLEBALL ARENA • JAI MODI');
     });
   });
 
   document.querySelectorAll('[data-action="preview-waterpark-card"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      openCardsScrollModal('shailendra');
+      openCardImageModal('/assets/businesses/waterpark-banquet-front.png', 'THE SOUTH WATERPARK • SHAILENDRA MODI');
     });
   });
 
   document.querySelectorAll('[data-action="preview-rakesh-card"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      openCardsScrollModal('rakesh');
+      openCardImageModal('/assets/businesses/rakesh-gupta-vandan-jewels-card.jpg', 'VANDAN JEWELS • RAKESH GUPTA');
     });
   });
 
