@@ -1,0 +1,86 @@
+import os
+from PIL import Image, ImageDraw, ImageFont
+
+svg_content = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3C4" />
+      <stop offset="25%" stop-color="#E5C378" />
+      <stop offset="60%" stop-color="#B8860B" />
+      <stop offset="85%" stop-color="#E5C378" />
+      <stop offset="100%" stop-color="#FFF8DC" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D77F" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#996515" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="luxuryGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Luxury Diamond Frame -->
+  <rect x="75" y="75" width="350" height="350" rx="36" transform="rotate(45 250 250)"
+        fill="#0b0e14" stroke="url(#goldGrad)" stroke-width="3" opacity="0.4" />
+  
+  <rect x="95" y="95" width="310" height="310" rx="28" transform="rotate(45 250 250)"
+        fill="#0d1117" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.8" />
+
+  <!-- Monogram JM -->
+  <g id="monogram" stroke="url(#goldGrad)" stroke-linecap="round" stroke-linejoin="round" filter="url(#luxuryGlow)">
+    <!-- J Serifs and Stem -->
+    <path d="M 185 170 L 245 170" stroke-width="10" />
+    <path d="M 225 170 L 225 280 C 225 320 195 335 165 325 C 145 318 135 298 135 280" 
+          fill="none" stroke-width="10" />
+    
+    <!-- M Interlocking Path -->
+    <path d="M 255 330 L 255 170 L 305 255 L 355 170 L 355 330" 
+          fill="none" stroke-width="10" />
+  </g>
+
+  <!-- Accent Diamonds -->
+  <polygon points="250,55 257,67 250,79 243,67" fill="url(#goldGrad)" />
+  <polygon points="250,421 257,433 250,445 243,433" fill="url(#goldGrad)" />
+  <polygon points="55,250 67,243 79,250 67,257" fill="url(#goldGrad)" />
+  <polygon points="421,250 433,243 445,250 433,257" fill="url(#goldGrad)" />
+</svg>"""
+
+os.makedirs('public/assets/icons', exist_ok=True)
+with open('public/assets/icons/jm-monogram.svg', 'w', encoding='utf-8') as f:
+    f.write(svg_content)
+with open('public/favicon.svg', 'w', encoding='utf-8') as f:
+    f.write(svg_content)
+
+print('SVG monogram created!')
+
+def create_app_icon(size):
+    img = Image.new('RGBA', (size, size), (11, 14, 20, 255))
+    draw = ImageDraw.Draw(img)
+    b = int(size * 0.08)
+    draw.rounded_rectangle([b, b, size - b, size - b], radius=int(size * 0.22), outline=(212, 175, 55, 240), width=max(2, int(size * 0.025)))
+    try:
+        font = ImageFont.truetype('arial.ttf', int(size * 0.38))
+    except:
+        font = ImageFont.load_default()
+    text = 'JM'
+    bbox = draw.textbbox((0, 0), text, font=font)
+    tw = bbox[2] - bbox[0]
+    th = bbox[3] - bbox[1]
+    draw.text(((size - tw) / 2, (size - th) / 2 - int(size * 0.03)), text, fill=(245, 220, 130), font=font)
+    return img
+
+icon192 = create_app_icon(192)
+icon192.save('public/assets/icons/icon-192.png')
+
+icon512 = create_app_icon(512)
+icon512.save('public/assets/icons/icon-512.png')
+icon512.save('public/apple-touch-icon.png')
+
+icon32 = create_app_icon(32)
+icon32.save('public/favicon.ico', format='ICO')
+
+print('All app icons and favicons generated successfully!')
