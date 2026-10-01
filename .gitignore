@@ -32,5 +32,6 @@ Thumbs.db
 
 # Large design source files
 *.pdf
+!public/assets/businesses/*.pdf
 
 .vercel
