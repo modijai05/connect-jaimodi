@@ -25,11 +25,12 @@ export function initAmbientCanvas() {
   let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   function resize() {
-    width = canvas.width = window.innerWidth * dpr;
-    height = canvas.height = window.innerHeight * dpr;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = canvas.width = Math.floor(window.innerWidth * dpr);
+    height = canvas.height = Math.floor(window.innerHeight * dpr);
     canvas.style.width = window.innerWidth + 'px';
     canvas.style.height = window.innerHeight + 'px';
-    ctx.scale(dpr, dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   resize();
   window.addEventListener('resize', resize, { passive: true });

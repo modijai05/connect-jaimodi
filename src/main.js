@@ -56,7 +56,11 @@ function switchTab(tabName, updateHash = true) {
       window.location.hash = tabName;
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (document.startViewTransition) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   if (document.startViewTransition) {
@@ -82,14 +86,14 @@ function downloadVcf(personKey) {
     })
     .then(blob => {
       triggerBlobDownload(blob, getFilenameForPerson(personKey));
-      showToast('Contact Card (.vcf) downloaded!');
+      showToast('Contact Card downloaded!');
     })
     .catch(() => {
       // Local fallback
       const vcfString = generateLocalVcf(personKey);
       const blob = new Blob([vcfString], { type: 'text/vcard;charset=utf-8' });
       triggerBlobDownload(blob, getFilenameForPerson(personKey));
-      showToast('Contact Card (.vcf) downloaded!');
+      showToast('Contact Card downloaded!');
     });
 }
 
