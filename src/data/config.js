@@ -32,8 +32,8 @@ export const BUSINESS_CARD_CONFIG = {
 
     email: "jaimodi05bapa@gmail.com",
 
-    // WeChat ID (scan QR to add)
-    wechatId: "", 
+    // WeChat ID (scan QR or search modijai05 to add)
+    wechatId: "modijai05", 
 
     // Supplied WeChat QR code asset
     wechatQr: "/assets/qr/wechat-qr.jpg",

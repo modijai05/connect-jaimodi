@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-action="open-wechat"]').forEach(btn =>
     btn.addEventListener('click', (e) => {
       // Try to open WeChat app; show modal after short delay if app didn't open
-      const weixinUrl = 'weixin://';
+      const weixinUrl = 'weixin://dl/chat?modijai05';
       const fallbackTimer = setTimeout(() => {
         openModal('wechat-modal');
       }, 1200);
