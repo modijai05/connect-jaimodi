@@ -159,8 +159,8 @@ export const BUSINESS_CARD_CONFIG = {
         longitude: 75.799958
       },
       maps: {
-        google: "https://maps.app.goo.gl/3cmiDXVktQPyHJBo8",
-        apple: "https://maps.apple/p/7aa4BR9RFvk.Gk",
+        google: "https://maps.app.goo.gl/zBRYRp58XWhWTsAJ9",
+        apple: "https://maps.apple/r/LsNAcDx3M-ZP.e",
         amap: "https://uri.amap.com/marker?position=75.799958,26.865328&name=Jai+Modi+Jaipur+Office"
       }
     },
